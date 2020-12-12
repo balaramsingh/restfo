@@ -1,4 +1,4 @@
-This id the SOAD project Folder of Group 29 , 
+This is the SOAD project Folder of Group 29 , 
 The Members of the group are :
 Mani Tej , Shankar Sreenu , Balaram Singh , Bhanu Kishore , Goutham 
 
