@@ -1,0 +1,32 @@
+{% extends 'nutrition/base.html' %}
+{% load static %}
+
+{% block content %}
+   <br> <br> <br> <br> <br>
+
+   <center> <h4> <b> Search Dishes By Ingredients </b> </h4> </center>
+
+   <div class="card" style="width: 115rem;">
+
+   <center> <img src="{% static 'nutrition/ing.jpg' %}" class="" alt="" height="500" width="600"> </center>
+
+   <div class="card-body">
+        <center> <h5 class="card-title"><h3 style="color:blue;"><u> Ingredients </u></h3></h5> </center>
+
+        <center>
+        <h5>
+          <form type="get" action="get_dish_ing/" accept-charset="utf-8">
+            <input type="text" id="ingredients" style="height:100px; width:400px" name="ingredients" placeholder="Type Ingredients seperated by comma ','"/>
+            <br> <br>
+            <button type="submit" class="btn btn-primary"><h5>Find Dishes </h5></button>
+        </form>
+
+      </h5>
+    </center>
+
+   </div>
+   </div>
+
+
+
+{% endblock content %}

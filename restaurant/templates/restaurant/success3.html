@@ -1,0 +1,16 @@
+{% extends 'restaurant/template.html' %}
+{% load static %}
+{% block content %}
+<div id="box">
+    <img id="success-icon" src="{% static 'restaurant/images/circle-tick-512.webp' %}" >
+    <h4>thank you for Rs-{{amount}}</h4>
+
+    <a class="myButton" href="{% url 'main' %}">&#x2190;Back
+
+    </a>
+<h1> {{username}} </h1>
+
+<a class="btn btn-outline-warning" href="{% url 'give-payment-notification' usrname=username  %}" role="button">Send Payment Notification</a>
+
+</div>
+{% endblock content %}

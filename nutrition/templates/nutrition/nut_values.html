@@ -1,0 +1,77 @@
+{% extends 'nutrition/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<br> <br> <br> <br> <br>
+
+<center> <h4 style="color:blue;"> <u> Find Dishes By Nutrition Values </u> </h4> </center> <br>
+
+<center>
+
+    <h5>
+    <form type="get" action="get_dish_nut/" accept-charset="utf-8">
+
+      <div class="form-col">
+      <div class="form-group col-md-4">
+      <u><label for="minCarbs">Minimum Carbohydrates(in gms)</label></u> <br>
+      <input type="integer" class="form-control" name="minCarbs" id="minCarbs" placeholder="Minimum Carbohydrate Value" required>
+      </div>
+       </div>
+
+       <div class="form-col">
+       <div class="form-group col-md-4">
+       <u><label for="maxCarbs"> Maximum Carbohydrates(in gms)</label></u> <br>
+       <input type="integer" class="form-control" name="maxCarbs" id="maxCarbs" placeholder="Maximum Carbohydrate Value" required>
+       </div>
+        </div>
+
+        <div class="form-col">
+        <div class="form-group col-md-4">
+        <u><label for="minProtein">Minimum Protein(in gms)</label></u> <br>
+        <input type="integer" class="form-control" name="minProtein" id="minProtein" placeholder="Minimum Protein Value" required>
+        </div>
+         </div>
+
+         <div class="form-col">
+           <u><label for="maxProtein">Maximum Protein(in gms)</label></u> <br>
+         <div class="form-group col-md-4">
+         <input type="integer" class="form-control" name="maxProtein" id="maxProtein" placeholder="Maximum Protein Value" required>
+         </div>
+          </div>
+
+          <div class="form-col">
+          <div class="form-group col-md-4">
+          <u><label for="minFat">Minimum Fat(in gms)</label></u> <br>
+          <input type="integer" class="form-control" name="minFat" id="minFat" placeholder="Minimum Fat Value" required>
+          </div>
+           </div>
+
+           <div class="form-col">
+           <div class="form-group col-md-4">
+           <u><label for="maxFat">Maximum Fat(in gms)</label></u> <br>
+           <input type="integer" class="form-control" name="maxFat" id="maxFat" placeholder="Maximum Fat Value" required>
+           </div>
+            </div>
+
+            <div class="form-col">
+            <div class="form-group col-md-4">
+            <u><label for="minCalories">Minimum Calories(in cal)</label></u> <br>
+            <input type="integer" class="form-control" name="minCalories" id="minCalories" placeholder="Minimum Calories Value" required>
+            </div>
+             </div>
+
+             <div class="form-col">
+             <div class="form-group col-md-4">
+             <u><label for="maxCalories">Maximum Calories(in cal)</label></u> <br>
+             <input type="integer" class="form-control" name="maxCalories" id="maxCalories" placeholder="Maximum Calories Value" required>
+             </div>
+            </div>
+
+           <button type="submit" class="btn btn-primary"><h5>Find Dishes </h5></button>
+
+    </form>
+       </h5>
+</center>
+
+{% endblock content %}

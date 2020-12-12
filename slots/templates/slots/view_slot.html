@@ -1,0 +1,46 @@
+{% extends "notifications/base.html" %}
+{% block content %}
+
+    <div class="container p-5">
+        <div class="container p-5">
+            <div class="container p-5">
+                <div class="row">
+                <div class="col">
+
+                  <form action="" method="post">
+         {% csrf_token %}
+
+         <label for="slot_date">Date: </label><br>
+         <input type="date" name="slot_date"><br><br>
+
+              <div class="container p-2">
+                   <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+              </div>
+         </form>
+
+                    <h1> <u>Slots</u> </h1>
+
+                    {% for n in slot %}
+                       <div class="container p-4 bg-light shadow-lg rounded-capsule">
+                         <h3>{{n.user_name}}</h3>
+                         <h3>{{n.rest_name}}</h3>
+                         <h3>{{n.date}}</h3>
+                          <h3>{{n.slot_number}}</h3>
+                          <h3>{{n.table_no}}</h3>
+                        <div class="container d-flex justify-content-end">
+
+                        </div>
+                       </div>
+
+                    {% endfor %}
+
+            <a href = "/book_slot/"> Book Slot </a>
+
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

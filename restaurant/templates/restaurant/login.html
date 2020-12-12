@@ -1,0 +1,77 @@
+{% load widget_tweaks %}
+{% load static %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+	<title>Restaurant Login Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href=" {% static 'restaurant/css/restfo-restaurantlogin.css' %}">
+  <style>
+    .w3-lobster {
+      font-family: "Lobster", serif;
+    }
+    </style>
+</head>
+
+<body>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+        
+				<div class="d-flex justify-content-center">
+					<div class="brand_logo_container">
+						<img src=" {% static 'restaurant/images/RESTFO.jpg' %}" class="brand_logo" alt="Logo">
+					</div>
+        </div>
+        
+				<div class="d-flex justify-content-center form_container">
+					
+                                        
+                    <div class="card-body">
+                    <form action="{% url 'login' %}" method="POST" novalidate>
+                      <div class="input-group-append">
+                      {% csrf_token %}
+                         {% for field in form.visible_fields %}
+                           <div class="form-group">
+                            
+                               <h5>{{ field.label_tag }}</h5>
+                                  {% render_field field class="input-group-text" %}
+                                    {% if messages%}
+                                      {% for message in messages %}
+                                        <span style="color:red">{{ message }}</span>
+                                      {% endfor %}
+                                     {% endif %}
+                         {% endfor %}
+                        </div>
+                         
+                             <input type="submit" value="Login" class="btn btn-block btn-primary">
+                             <span><h5><a href="{% url 'reset_password' %}">forgot password</a></h5></span>
+                           </div>
+
+                    </form>
+                  
+                  </div>
+                 </div>
+						
+							
+					</form>
+				</div>
+		
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+
+{% load static %}
+
+
+<center> <h1 style="color:blue;"><b> Reviews </b></h1> </center>
+<center>
+
+  {% for rev in reviews %}
+
+  <div  class="shadow-sm p-3 mb-5 bg-white rounded" style="border-style:dotted;width: 600px;border-width: 0px;padding-bottom: 30px;">
+
+  <div style="background-color:#fbff29;font-family:Arial, Helvetica, sans-serif;font-size: 20px;">
+
+
+  <div class="row no-gutters">
+    <div class="col-md-8">
+      <div class="card-body"> <br>
+        <h5 class="card-title">
+          <h5> Restaurant-Name : {{ rev.rest_name }}.</h5>
+          <h5> Review - {{ rev.review }}. </h5>
+          <h5> Experience - {{ rev.experience }}. </h5>
+          <h5> Rating - {{ rev.rating }}. </h5>
+          <br><br>
+      </div>
+    </div>
+    
+  </div>
+  </div>
+</div>
+
+</div>
+
+{% endfor %}
+</center>

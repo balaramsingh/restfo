@@ -1,0 +1,26 @@
+{% extends 'nutrition/base.html' %}
+{% load static %}
+{% block content %}
+
+<br> <br> <br> <br> <br>
+
+<center>
+<div class="card" style="width: 115rem;">
+  <div class="card-body">
+   <h5 class="card-title"><h3><u> Ask Question </u></h3></h5> <br>
+
+       <h5>
+         <form type="get" action="answer/" accept-charset="utf-8">
+          <input type="text" style="height:200px;" id="q" name="q" placeholder="Type a Question"  size="50"/> <br>
+
+           <br>
+            <button type="submit" class="btn btn-primary"><h5>Ask </h5></button>
+         </form>
+     </h5>
+
+  </div>
+</div>
+</center>
+
+
+{% endblock content %}

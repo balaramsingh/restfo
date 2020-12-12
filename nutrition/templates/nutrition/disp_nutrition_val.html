@@ -1,0 +1,54 @@
+{% extends 'nutrition/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<br> <br> <br> <br> <br>
+
+  <center> <h2 style="color:blue;"> <b> {{ item }} </b></h2> </center>
+
+ <center>
+
+  <div>
+ <div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+
+    <div class="col-md-8">
+      <div class="card-body">
+        <h3 class="card-title"><u><b> Calories</b></u> - {{data.0}} {{data.1}}.</h3>
+          <h5>Min - {{data.2}} {{data.1}}.</h5>
+          <h5>Max - {{data.3}} {{data.1}}.</h5>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title"><u><b> Fat</b></u> - {{data.4}} {{data.5}}.</h3>
+            <h5>Min - {{data.6}} {{data.5}}.</h5>
+            <h5>Max - {{data.7}} {{data.5}}.</h5>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3 class="card-title"> <u> <b> Protein</b></u> - {{data.8}} {{data.9}}.</h3>
+              <h5>Min - {{data.10}} {{data.9}}.</h5>
+              <h5>Max - {{data.11}} {{data.9}}.</h5>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="card-body">
+              <h3 class="card-title"><u><b>Carbohydrates</b></u> - {{data.12}} {{data.13}}.</h3>
+                <h5>Min - {{data.14}} {{data.13}}.</h5>
+                <h5>Max - {{data.15}} {{data.13}}.</h5>
+              </div>
+            </div>
+
+  </div>
+</div>
+</div>
+
+</center>
+
+{% endblock content %}

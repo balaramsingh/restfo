@@ -1,0 +1,206 @@
+
+
+{% load static %}
+{% block content %}
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<style>
+    .center1{
+         text-align:center;
+          color:red;
+   }
+
+   .center2{
+         text-align:center;
+          color:blue;
+   }
+
+  .order{
+
+
+     color:orange
+
+
+      }
+
+
+ .food{
+
+    margin= 5px 4px;
+    height= 5px;
+
+ }
+
+      .content{
+
+
+height: 65%;
+width: 30%;
+font-size: 14px;
+float: left;
+z-index: 2;
+
+      }
+
+    .image{
+
+        margin-left: 7%;
+       width:40%
+    padding: 0 10px;
+    }
+
+    .review{
+
+
+height: 35%;
+width: 20%;
+font-size: 4px;
+float: right;
+z-index: 2;
+background-color: white;
+
+    }
+
+    .box{
+
+
+  width: 320px;
+  padding: 10px;
+  border: 1px solid orange;
+  margin: 0;
+}
+
+
+
+
+</style>
+
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+
+</head>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-light navback shadow-lg p-3 mb-2 fixed-top" style="background-color:#ff661a;">
+        <a class="navbar-brand" href="#"> Check Details </a>
+
+        <button class="navbar-toggler btn-primary ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+    <div class="collapse navbar-collapse pl-5" id="navbarNav">
+        <div class="container">
+            <ul class="navbar-nav ml-auto pl-5">
+                <li class="nav-item px-2">
+                    <b><a  style="padding-left:650px;" class="nav-link text-body"data-toggle="tooltip" data-placement="bottom" href="{% url 'UserMenu' restid=rest.user.username %}">MENU</a></b>
+                  </li>
+            <li class="nav-item px-2">
+                <a class="btn btn-outline-primary" href="{% url 'give-general-notification' usrname=username  %}" role="button">Send General Notification</a>
+              </li>
+              <li class="nav-item px-2">
+                <a class="btn btn-outline-primary" href="{% url 'give-order-notification' usrname=username  %}" role="button">Check Order Status</a>
+              </li>
+         </ul>
+
+        </div>
+      </div>
+      </nav>
+
+
+
+<h1  class="center1" style="padding-top: 75px;" >{{rest.Restaurant_Name}}</h1>
+
+<p style="padding-left: 75px;"><img class="rounded-square shadow-lg" height="225" width="225" src="{{ rest.Restaurant_Image.url }}"></p>
+
+<section class="section">
+<ul style="list-style-type:none;">
+
+
+<div class="review">
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br>
+    <pre>      <a class="btn btn-outline-warning" href="view_offers" role="button">Check Offers </a></pre>
+    <pre>      <a class="btn btn-outline-warning" href="check" role="button">Check Tables </a></pre>
+<br>
+<pre>      <a class="btn btn-outline-warning" href="check2" role="button">Check Slots</a></pre>
+<br>
+<pre>      <a class="btn btn-outline-warning" href="/time_slot" role="button">RESTFO Time Slots </a></pre>
+
+<pre>      <a class="btn btn-outline-warning" href="give_rev" role="button">Give Review and Rating</a> </pre>
+    <br><br>
+<pre>      <a class="btn btn-outline-warning" href="show_rev" role="button">See Previous Reviews and Ratings</a> </pre>
+</div>
+<div class="content card mb-2 shadow" style="width: 325px;">
+
+<li><div class="box"> Gmail :{{rest.gmail}}</div> </li>
+<li><div class="box"> Address   : {{rest.Address}}</div></li>
+<li><div class="box"> Restaurant-Type :{{rest.Restaurant_Type}}</div></li>
+<li><div class="box"> Food-Type :  {{rest.Food_Type}}</div></li>
+<li><div class="box"> Contact :  {{rest.contact}}</div> </li>
+<li><div class="box"> Paymentno: {{rest.Payment_No }}</div></li>
+</ul>
+<br><br>
+</div>
+
+</section>
+
+
+<h2 style="padding-left: 800px;">SLOT Booking</h2>
+
+
+    <div class="container p-5">
+        <div class="container p-5">
+            <div>
+            <div class="container bg-light shadow-lg p-5">
+             <div class="row">
+                 <div class="col-sm-6">
+                     <form action="" method="post">
+            {% csrf_token %}
+
+            <label for="slot_date">Date: </label><br>
+            <input type="date" name="slot_date"><br><br>
+
+            <label for="slot_number">Time Slot Number(1-20): </label><br>
+            <input type="integer" name="slot_number"><br><br>
+
+            <label for="table_no">Table Size ( 2,4,6,8 only): </label><br>
+            <input type="integer" name="table_no"><br><br>
+
+                 <div class="container p-2">
+                      <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+                 </div>
+            </form>
+                 </div>
+                 <div class="col-sm-6">
+                     <h5 class="order">Order Now!! Plan Things As You Wish!!</h5>
+                 </div>
+             </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    {% if message %}
+<p style="background-color: red;">{{message}}</p>
+{% endif %}
+{% endblock content %}

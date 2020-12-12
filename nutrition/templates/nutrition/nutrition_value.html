@@ -1,0 +1,31 @@
+{% extends 'nutrition/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<br> <br> <br> <br>
+
+<center>
+<div class="card" style="width: 115rem;">
+
+  <center> <img src="{% static 'nutrition/nut_val.jpg' %}" class="" alt="" height="620" width="700"> </center>
+
+
+  <div class="card-body">
+   <h5 class="card-title"><h3 style="color:blue;"><u> Know about Nutrition Values of a Dish Before You Eat.</u></h3></h5> <br>
+
+       <h5>
+         <form type="get" action="get_nut_val/" accept-charset="utf-8">
+        <input type="text" id="item" name="item" placeholder="Type a Dish"/> <br> <br>
+
+               <button type="submit" class="btn btn-primary"><h5>Nutrition Value </h5></button>
+
+         </form>
+     </h5>
+
+  </div>
+</div>
+</center>
+
+
+{% endblock content %}

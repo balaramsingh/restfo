@@ -1,0 +1,38 @@
+{% extends "notifications/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="container p-5">
+        <div class="container p-5">
+            <div class="container p-5">
+                <div class="container p-5 bg-light shadow-lg">
+
+                  {% if user.is_restaurant %}
+                    <h2>General Notification</h2>
+
+                  {% else %}
+                    <h2>{{notification.title}}</h2>
+                  {% endif %}
+
+                <p>{{notification.message}}</p>
+
+                    {% if user.is_restaurant %}
+                        <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <br>
+                        <button type="submit">Submit</button>
+                        </form>
+                    {% endif %}
+
+                    <div class="container d-flex justify-content-end">
+                                        <p> By --- {{notification.curr_user}} </p>
+                    </div>
+                <p><a href="/notifications/delete/{{notification.id}}/">Mark as read</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

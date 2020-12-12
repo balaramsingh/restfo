@@ -1,0 +1,40 @@
+{% extends 'nutrition/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<br> <br> <br> <br> <br>
+<div class="card" style="width: 115rem;">
+
+<center> <img src="{% static 'nutrition/meal_plan.jpg' %}" class="" alt="" height="500" width="600"> </center>
+
+<div class="card-body">
+     <center> <h5 class="card-title"><h3><u> Meal Plan </u></h3></h5> </center>
+
+       <h5>
+       <center>
+        <form type="get" action="get_diet_plan/" accept-charset="utf-8">
+        <div class="form-col">
+          <div class="form-group col-md-4">
+            <u><label for="calories" style="color:blue;">Enter Target Calories</label></u> <br>
+            <input type="integer" class="form-control" id="calories" placeholder="Targer Calories" required>
+          </div>
+        </div>
+
+        <div class="form-group col-md-4">
+         <u> <label for="duration" style="color:blue;">Duration</label> </u><br>
+          <select id="duration" name="duration">
+            <option value="day">Day</option>
+            <option value="week">Week</option>
+          </select>
+        </div>
+
+             <button type="submit" class="btn btn-primary"><h5>Get Meal Plan </h5></button>
+         </form>
+       </center>
+      </h5>
+
+</div>
+</div>
+
+{% endblock content %}

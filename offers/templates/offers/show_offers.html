@@ -1,0 +1,55 @@
+{% extends 'offers/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<br> <br> <br> <br> <br>
+
+<style>
+
+.centered {
+  border: 1px;
+}
+</style>
+
+
+
+<center> <h1 style="color:indigo;"><b> Available Coupons </b></h1> </center>
+<center>
+
+
+ {% for offer in offers %}
+  <div  class="shadow-sm p-3 mb-5 bg-white rounded" style="border-style:dotted;width: 900px;border-width: 0px;background-color: #0066ff;">
+
+  <div style="background-color:#ff9100;">
+
+
+  <div class="row no-gutters">
+
+    <div class="col-md-4">
+      <br>
+      <h1 style="color:#f90606"> {{offer.code}} </h1>
+    </div>
+
+    <div class="col-md-8">
+      <div class="card-body" style="color: #1a1a1a;"> <br>
+        <h5 class="card-title">
+          <b> {{offer.title}} </b></h5>
+          <h5> Validity : {{ offer.valid_from }} <small> to </small> {{ offer.valid_to }}</h5>
+          <h5> Discount - {{ offer.discount }}%. </h5>
+          <h5> Applicable to  - {{ offer.applicable }}. </h5>
+          <br> <br>
+          <h6> NOTE - {{ offer.description }}. </h5>
+          <br>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+</div>
+
+{% endfor %}
+</center>
+
+{% endblock content %}

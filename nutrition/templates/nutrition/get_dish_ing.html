@@ -1,0 +1,31 @@
+{% extends 'nutrition/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<br> <br> <br> <br> <br>
+
+<center> <h4 style="color:blue;"><b> Suggested Dishes </b></h4> </center>
+
+<center>
+ {% for val in data %}
+  <div>
+    <div class="shadow-sm p-3 mb-5 bg-white rounded"">
+ <div class="card" style="max-width: 900px;">
+  <div class="row no-gutters">
+    <div class="col">
+      <img src="{{val.1}}" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <br> <br>
+        <h4 class="card-title"><b> {{val.0}} </b></h4>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endfor %}
+</center>
+
+{% endblock content %}

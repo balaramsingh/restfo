@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+{% extends 'profiles/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row1 {
+    height:24%;
+    background-color: #00bfff;
+    margin-bottom: 1%;
+}
+
+.row2 {
+    height:24%;
+    margin-bottom: 1%;
+    background-color: #00ace6;
+}
+
+.row3 {
+    height:24%;
+    margin-bottom: 1%;
+    background-color: #0099cc;
+}
+
+.row4 {
+    height:24%;
+    margin-bottom: 1%;
+    background-color: #0086b3;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+ /* Should be removed. Only for demonstration */
+}
+
+.left {
+    padding-left: 3%;
+  width: 34%;
+}
+
+ .right {
+  width: 63%;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navback shadow-lg p-3 mb-2 fixed-top" style="background-color:#cc6600;">
+        <a class="navbar-brand" href="#"> Check Details </a>
+
+        <button class="navbar-toggler btn-primary ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+    <div class="collapse navbar-collapse pl-5" id="navbarNav">
+        <div class="container">
+            <ul class="navbar-nav ml-auto pl-5">
+            <li class="nav-item px-2">
+                <a class="nav-link text-body"data-toggle="tooltip" data-placement="bottom" href="/profiles/{{username}}">Back</a>
+              </li>
+         </ul>
+
+        </div>
+      </div>
+      </nav>
+<br> <br> <br> <br>
+<div class="row">
+  <div class="column left" style="background-color:#e6f5ff;">
+    <h2> Check Table Availability Before You Book!!</h2>
+
+    <div class="container p-5">
+        <div class="container p-5">
+            <div class="container bg-light shadow-lg p-5">
+             <div class="row">
+                 <div class="col-sm-6">
+                     <form action="" method="post">
+            {% csrf_token %}
+
+            <label for="slot_date">Date: </label><br>
+            <input type="date" name="slot_date"><br><br>
+
+            <a href="/time_slot">View Time Slots</a>
+
+            <label for="slot_number">Slot Number: </label><br>
+            <input type="integer" name="slot_number"><br><br>
+
+                 <div class="container p-2">
+                      <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+                 </div>
+            </form>
+                 </div>
+
+             </div>
+            </div>
+        </div>
+    </div>
+
+
+  </div>
+  <div class="column right" style="background-color:#e6f5ff;">
+    <div class="row1">
+        <h2> <img src="{% static '/profiles/2.png' %}" alt="" height="60" width="100"> Member Tables </h2>
+
+    {% for i in available_2 %}
+    <i class="fas fa-square fa-4x" style="color:#1aff1a; padding-left:15px;"></i>
+    {% endfor %}
+    {% for i in occupied_2 %}
+    <i class="fas fa-square fa-4x" style="color:#ff1a1a; padding-left:15px;"></i>
+    {% endfor %}
+
+    </div>
+    <div class="row2">
+        <h2> <img src="{% static '/profiles/4.png' %}" alt="" height="50" width="150"> Member Tables </h2>
+
+    {% for i in available_4 %}
+    <i class="fas fa-square fa-4x" style="color:#1aff1a; padding-left:15px;"></i>
+    {% endfor %}
+    {% for i in occupied_4 %}
+    <i class="fas fa-square fa-4x" style="color:#ff1a1a; padding-left:15px;"></i>
+    {% endfor %}
+
+    </div>
+
+     <div class="row3">
+        <h2> <img src="{% static '/profiles/6.png' %}" alt="" height="60" width="75"> Member Tables </h2>
+
+        {% for i in available_6 %}
+        <i class="fas fa-square fa-4x" style="color:#1aff1a; padding-left:15px;"></i>
+        {% endfor %}
+        {% for i in occupied_6 %}
+    <i class="fas fa-square fa-4x" style="color:#ff1a1a; padding-left:15px;"></i>
+    {% endfor %}
+
+     </div>
+
+     <div class="row4">
+        <h2> <img src="{% static '/profiles/8.png' %}" alt="" height="60" width="100"> Member Tables </h2>
+
+        {% for i in available_8 %}
+        <i class="fas fa-square fa-4x" style="color:#1aff1a; padding-left:15px;"></i>
+        {% endfor %}
+        {% for i in occupied_8 %}
+    <i class="fas fa-square fa-4x" style="color:#ff1a1a; padding-left:15px;"></i>
+    {% endfor %}
+     </div>
+     <h1 style="font-size: 38px;"><i class="fas fa-square fa-1x" style="color:#1aff1a; padding-left:275px;text-align: center;"></i> - Available Table <i class="fas fa-square fa-1x" style="color:#ff1a1a; padding-left:100px;"></i> - Occupied Table</h1>
+
+  </div>
+
+
+
+</div>
+
+
+
+</body>
+</html>
+
+{% endblock content %}

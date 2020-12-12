@@ -1,0 +1,31 @@
+{% extends "notifications/base.html" %}
+{% block content %}
+
+    <div class="container p-5">
+        <div class="container p-5">
+            <div class="container bg-light shadow-lg p-5">
+             <div class="row">
+                 <div class="col-sm-6">
+          <form action="give_g/" method="post">
+
+            {% csrf_token %}
+          
+            <label for="title">Title: </label><br>
+            <input type="text" name="title"><br>
+
+            <label for="message">Message: </label><br>
+            <textarea name="message" rows="10" cols="50"></textarea>
+
+            <div class="container p-2">
+                  <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+            </div>
+            </form>
+                 </div>
+                 <div class="col-sm-6">
+                     <h5>Discuss anything easily !!!.</h5>
+                 </div>
+             </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

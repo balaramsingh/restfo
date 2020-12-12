@@ -1,0 +1,40 @@
+{% extends "notifications/base.html" %}
+{% block content %}
+
+    <div class="container p-5">
+        <div class="container p-5">
+            <div class="container bg-light shadow-lg p-5">
+             <div class="row">
+                 <div class="col-sm-6">
+                     <form action="" method="post">
+            {% csrf_token %}
+
+            <b> <u>NOTE </u> - User-Name is Case-Sensitive. Enter exact name(characters).<b><br><br>
+            <label for="user_name">From(User-Name): </label><br>
+            <input type="text" name="user_name"><br>
+
+            <label for="rest_user">To(Rest-Name): </label><br>
+            <input type="text" name="rest_name"><br>
+
+            <label for="slot_date">Date: </label><br>
+            <input type="date" name="slot_date"><br><br>
+
+            <label for="slot_number">Time Slot Number: </label><br>
+            <input type="integer" name="slot_number"><br><br>
+
+            <label for="table_no">Table Number: </label><br>
+            <input type="integer" name="table_no"><br><br>
+
+                 <div class="container p-2">
+                      <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+                 </div>
+            </form>
+                 </div>
+                 <div class="col-sm-6">
+                     <h5>Order Now!! Plan Things As You Wish!!</h5>
+                 </div>
+             </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

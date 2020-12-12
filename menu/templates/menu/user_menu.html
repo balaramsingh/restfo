@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <title>Menu view</title>
+  </head>
+  <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    body {
+  font: 20px Arial;
+  color: orangered;  
+  margin: 20px;
+  padding-left: 150px;
+  }
+  input[type=submit] {
+  background-color: orangered;
+  color: whitesmoke;
+  cursor: pointer;
+}
+.checked {
+  color: orangered;
+}
+  </style>
+  <body>
+    <script>
+      function myFunction() {
+        confirm("add to order list!");
+      }
+       </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    {% load static %}
+
+    <div class="container-fluid">
+      <div class="d-flex justify-content-center">
+        <img src="{% static 'restafo_logo.jpeg' %}" alt="My image" height="100px" width="150px"/>
+      </div> 
+
+      <h2>Hai {{user}} welcome to {{rest_user.Restaurant_Name}} Order delicious food now!</h2>
+      <div class="col-md-4">
+        <img class="rounded-square shadow-lg" height="250" width="250" src="{{rest_user.Restaurant_Image.url }}" >
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm">
+            <form action="" method="GET"> {% csrf_token %}
+              <input type="submit" value="My Orders" name = "submit" class="btn btn-light">
+            
+        </form> 
+        {% for val in MyOrders %}
+        <li class="nav-item"></li>
+         Item: {{val.Menu_id.fname}},Time: {{val.Timestamp}},Prise: {{val.cost}} Rs, quantity: {{val.quantity}}
+        </li>
+        {% endfor %}
+          </div>
+          <div class="col-sm">
+            <form action="" method="GET"> {% csrf_token %}
+              <input type="submit" value="Successful Orders" name = "submit" class="btn btn-light">
+          </form>
+        
+        {% for val in Confirm %}
+        <li class="nav-item"></li>
+         Item: {{val.Menu_id.fname}},Time: {{val.Timestamp}},Prise: {{val.cost}} Rs, quantity: {{val.quantity}}
+        </li>
+        {% endfor %}
+          </div>
+          <div class="col-sm">
+            <form action="" method="GET"> {% csrf_token %}
+              <input type="submit" value="Failed Orders" name = "submit" class="btn btn-light">
+          </form>
+          {% for val in Pending %}
+          <li class="nav-item"></li>
+           Item: {{val.Menu_id.fname}},Time: {{val.Timestamp}},Prise: {{val.cost}} Rs, quantity: {{val.quantity}}
+          </li>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!--search-->
+      <div class="container-fluid">
+      <div class="d-flex justify-content-center">
+      <nav class="navbar navbar-light bg-light">
+        <form class="form-inline" method="GET"> {% csrf_token %}
+          <input class="btn btn-light" type="search" name ="query" placeholder="Search..." aria-label="Search">
+          <input type="submit" value="Search" name = "submit" class="btn btn-light">
+        </form>
+      </nav>
+    </div>
+  </div>
+        
+<div class="container-fluid">
+      <div class="container-fluid">
+        <div class="row">
+            <form action="" method="GET"> {% csrf_token %}
+              <input type="submit" value="Starters ({{Starters|length}})" name = "submit" class="btn btn-light">
+            </form> 
+       </div>
+   </div>
+
+<div class="container-fluid">
+        <div class="row">
+            <form action="" method="GET"> {% csrf_token %}
+              <input type="submit" value="Main Course ({{Main_Course|length}})" name = "submit" class="btn btn-light">
+            </form> 
+       </div>
+   </div>
+<div class="container-fluid">
+        <div class="row">
+            <form action="" method="GET"> {% csrf_token %}
+              <input type="submit" value="Indian Breads ({{Indian_Breads|length}})" name = "submit" class="btn btn-light">
+            </form> 
+       </div>
+</div>
+ 
+<div class="container-fluid">
+        <div class="row">
+            <form action="" method="GET"> {% csrf_token %}
+              <input type="submit" value="Snacks ({{Snacks|length}})" name = "submit" class="btn btn-light">
+            </form> 
+       </div>
+</div>
+
+<div class="container-fluid">
+        <div class="row">
+            <form action="" method="GET"> {% csrf_token %}
+              <input type="submit" value="Deserts ({{Deserts|length}})" name = "submit" class="btn btn-light">
+            </form> 
+       </div>
+</div>
+<div class="container-fluid">
+        <div class="row">
+            <form action="" method="GET"> {% csrf_token %}
+              <input type="submit" value="Ice Creams ({{Ice_Creams|length}})" name = "submit" class="btn btn-light">
+            </form> 
+       </div>
+</div>
+  </div>  
+  
+  
+  <a href="{% url 'MenuRating' restid=rest_user.user%}" class="btn-sm btn">Rate Food {{rest_user.Restaurant_Name}} </a>
+  
+       {% if msg.0 %}
+         <h5>PLease wait .....</h5>
+        {{msg.0}}
+       {% endif %}
+       <span class="glyphicon glyphicon-shopping-cart"></span>
+        <h5>Cart ({{cart|length}})</h5>
+        {% if cart %}
+          <h3>Your Orders!</h3>
+        {% endif %}
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          {% for val in cart %}
+          <div class="float -left">
+            <li>
+            Item:{{val.0}}, quantity :{{val.1}},Rs each {{val.2}}
+          </li>
+          {% endfor %}
+          {% if cart %}
+          <li>
+            Total Cost={{cost.0}} Rs
+          </li>
+         
+        <form action="" method="GET">{% csrf_token %}
+          <input type="submit" value="Confirm Your Order"  onclick=myFunction() name="submit" class="btn-sm btn">
+          <input type="submit" value="Undo"  onclick=myFunction() name="submit" class="btn-sm btn">
+        </form>
+        {% endif %} 
+          </div>
+      </div>
+      {% if Selected == "Search Results" %}
+      <h2>Search Results</h2>
+      {% endif %}
+      {% if Selected == "All Items" %}
+      <h2>All Items</h2>
+      {% endif %}
+      {% if Selected == "Starters" %}
+      <h2>Starters</h2>
+      {% endif %}
+      {% if Selected == "Main Course" %}
+      <h2>Main Course</h2>
+      {% endif %}
+      {% if Selected == "Indian Breads" %}
+      <h2>Indian Breads</h2>
+      {% endif %}
+      {% if Selected == "Snacks" %}
+      <h2>Snacks</h2>
+      {% endif %}
+      {% if Selected == "Ice Creams" %}
+      <h2>Ice Creams</h2>
+      {% endif %}
+      <div class="container-fluid">
+        <div class="row">
+        {% for val in Menu %}
+        <div class="col-sm">
+        <div class="d-flex justify-content-center" >
+          <div class="shadow-lg p-3 mb-5 bg-white rounded">
+               <form action="" method="GET">{% csrf_token %}
+                <h5 class="card-title">{{val.fname}}</h5>
+                <img class="rounded-square shadow-lg" height="150" width="150" src="{{ val.Image.url }}">
+                {% if val.availability == "av" %}
+                <input type="hidden" value="{{val.id}}" name="menuid">
+                <p>Cost : {{val.price}}</p>
+                <h4>quantity</h4>
+                <input type="number" id="quantity" name="quantity" value =1 min="1" max="10">
+                <input type="submit" value="Add"  onclick=myFunction() name="submit" class="btn-sm btn">
+                {% if val.rating == 5%}
+                  <h4>Star Rating</h4>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  {% endif %}
+
+                  {% if val.rating == 4 %}
+                  <h4>Star Rating</h4>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  {% endif %}
+
+                  {% if val.rating == 3 %}
+                  <h4>Star Rating</h4>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  {% endif %}
+
+                  {% if val.rating == 2 %}
+                  <h4>Star Rating</h4>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star"></span>
+                  {% endif %}
+
+                  {% if val.rating == 1 %}
+                  <h4>Star Rating</h4>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  {% endif %}
+
+                  {% if val.rating == 0 %}
+                  <h4>Un Rated</h4>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  {% endif %}
+                {% endif %}
+                {% if val.availability == "unav" %}
+                <h5 class= "text: danger">Sold out</h5>
+                {% endif %}
+                </form>
+          </div>
+        </div>
+      </div>
+       {% endfor %}
+        </div>
+      </div>
+       
+  
+
+</body>
+</html>
+

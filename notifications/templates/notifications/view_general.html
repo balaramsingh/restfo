@@ -1,0 +1,31 @@
+{% extends "notifications/base.html" %}
+{% block content %}
+
+    <div class="container p-5">
+        <div class="container p-5">
+            <div class="container p-5">
+                <div class="row">
+                <div class="col">
+                    <h1> <u>GENERAL NOTIFICATIONS</u> </h1>
+                    {% for n in notifications %}
+                      {% if notifications.count > 0 %}
+                       <div class="container p-4 bg-light shadow-lg rounded-capsule">
+                       <h3><a href="/notifications/show_gen/{{n.id}}">{{n.title}}</a></h3>
+                        <div class="container d-flex justify-content-end">
+                            <h6>--By {{n.curr_user}}</h6>
+                        </div>
+                       </div>
+                       {% endif %}
+                    {% endfor %}
+                    {% if notifications.count == 0 %}
+                        <h5>
+                          No new notifications to read...</h5>
+                    {% endif %}
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

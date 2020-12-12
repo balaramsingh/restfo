@@ -1,0 +1,11 @@
+body {
+    background-image: url("wall3.jpg");
+    background-size: cover;
+}
+.navback {
+    opacity: 0.5;
+}
+/*.mainbox {
+    background-image: url("wall2.jpg");
+    background-size: cover;
+}

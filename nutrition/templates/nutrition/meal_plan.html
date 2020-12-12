@@ -1,0 +1,231 @@
+{% extends 'nutrition/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<center>
+<br> <br> <br> <br>
+{% if dur == 0 %}
+
+{% for x in data %}
+  <h3 style="color:blue;"> <u> {{x.6}} </u> </h3>
+  <div>
+    <div class="mb-5 bg-white rounded">
+ <div class="card" style="max-width: 500px;">
+  <div class="row no-gutters">
+    <div class="col">
+      <div class="card-body">
+        <h4 class="card-title"> Item : <b> {{x.0}} </b> </h4>
+        <h5> Preparation Time : {{x.1}} min. </h5>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endfor %}
+
+<h5> <u> Calories</u> : <b> {{ cal }} cal. </b> </h5>
+<h5> <u> Protiens</u> : <b> {{ pro }} g. </b> </h5>
+<h5> <u> Fat</u> : <b> {{ fat }} g. </b> </h5>
+<h5> <u> Carbohydrates</u> : <b> {{ carb }} g. </b> </h5>
+
+</center>
+
+{% else %}
+
+<br>
+<center>
+
+<u> <h3 style="color:#9900cc;"> DAY - 1 </h3> </u>
+
+    <div class="mb-5 bg-white rounded">
+ <div class="card" style="max-width: 800px;">
+  <div class="row no-gutters">
+
+    <div class="col">
+      <div class="card-body">
+
+        <h4 class="card-title" style="color:blue;">BreakFast</h4>
+        <h4> <u>Item</u> : <b> {{data.0}} <b> </h4>
+
+        <br>
+        <h4 class="card-title" style="color:blue;">Lunch</h4>
+        <h4> <u>Item</u> : <b> {{data.1}} <b> </h4>
+
+          <br>
+        <h4 class="card-title" style="color:blue;">Dinner</h4>
+        <h4> <u>Item</u> : <b> {{data.2}} <b> </h4>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+
+
+<u> <h3 style="color:#9900cc;"> DAY - 2 </h3> </u>
+
+  <div class="mb-5 bg-white rounded">
+<div class="card" style="max-width: 800px;">
+<div class="row no-gutters">
+
+  <div class="col">
+    <div class="card-body">
+
+      <h4 class="card-title" style="color:blue;">BreakFast</h4>
+      <h4> <u>Item</u> : <b> {{data.3}} <b> </h4> <br>
+
+
+      <h4 class="card-title" style="color:blue;">Lunch</h4>
+      <h4> <u>Item</u> : <b> {{data.4}} <b> </h4> <br>
+
+      <h4 class="card-title" style="color:blue;">Dinner</h4>
+      <h4> <u>Item</u> : <b> {{data.5}} <b> </h4>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<u> <h3 style="color:#9900cc;"> DAY - 3 </h3> </u>
+
+<div class="mb-5 bg-white rounded">
+<div class="card" style="max-width: 800px;">
+<div class="row no-gutters">
+
+<div class="col">
+  <div class="card-body">
+
+    <h4 class="card-title" style="color:blue;">BreakFast</h4>
+    <h4> <u>Item</u> : <b> {{data.6}} <b> </h4> <br>
+
+
+    <h4 class="card-title" style="color:blue;">Lunch</h4>
+    <h4> <u>Item</u> : <b> {{data.7}} <b> </h4> <br>
+
+    <h4 class="card-title" style="color:blue;">Dinner</h4>
+    <h4> <u>Item</u> : <b> {{data.8}} <b> </h4>
+
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<u> <h3 style="color:#9900cc;"> DAY - 4 </h3> </u>
+
+<div class="mb-5 bg-white rounded">
+<div class="card" style="max-width: 800px;">
+<div class="row no-gutters">
+
+<div class="col">
+  <div class="card-body">
+
+    <h4 class="card-title" style="color:blue;">BreakFast</h4>
+    <h4> <u>Item</u> : <b> {{data.9}} <b> </h4> <br>
+
+
+    <h4 class="card-title" style="color:blue;">Lunch</h4>
+    <h4> <u>Item</u> : <b> {{data.10}} <b> </h4> <br>
+
+    <h4 class="card-title" style="color:blue;">Dinner</h4>
+    <h4> <u>Item</u> : <b> {{data.11}} <b> </h4>
+
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<u> <h3 style="color:#9900cc;"> DAY - 5 </h3> </u>
+
+<div class="mb-5 bg-white rounded">
+<div class="card" style="max-width: 800px;">
+<div class="row no-gutters">
+
+<div class="col">
+  <div class="card-body">
+
+    <h4 class="card-title" style="color:blue;">BreakFast</h4>
+    <h4> <u>Item</u> : <b> {{data.12}} <b> </h4> <br>
+
+
+    <h4 class="card-title" style="color:blue;">Lunch</h4>
+    <h4> <u>Item</u> : <b> {{data.13}} <b> </h4> <br>
+
+    <h4 class="card-title" style="color:blue;">Dinner</h4>
+    <h4> <u>Item</u> : <b> {{data.14}} <b> </h4>
+
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<u> <h3 style="color:#9900cc;"> DAY - 6 </h3> </u>
+
+<div class="mb-5 bg-white rounded">
+<div class="card" style="max-width: 800px;">
+<div class="row no-gutters">
+
+<div class="col">
+  <div class="card-body">
+
+    <h4 class="card-title" style="color:blue;">BreakFast</h4>
+    <h4> <u>Item</u> : <b> {{data.15}} <b> </h4> <br>
+
+
+    <h4 class="card-title" style="color:blue;">Lunch</h4>
+    <h4> <u>Item</u> : <b> {{data.16}} <b> </h4> <br>
+
+    <h4 class="card-title" style="color:blue;">Dinner</h4>
+    <h4> <u>Item</u> : <b> {{data.17}} <b> </h4>
+
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<u> <h3 style="color:#9900cc;"> DAY - 7 </h3> </u>
+
+<div class="mb-5 bg-white rounded">
+<div class="card" style="max-width: 800px;">
+<div class="row no-gutters">
+
+<div class="col">
+  <div class="card-body">
+
+    <h4 class="card-title" style="color:blue;">BreakFast</h4>
+    <h4> <u>Item</u> : <b> {{data.18}} <b> </h4> <br>
+
+
+    <h4 class="card-title" style="color:blue;">Lunch</h4>
+    <h4> <u>Item</u> : <b> {{data.19}} <b> </h4> <br>
+
+    <h4 class="card-title" style="color:blue;">Dinner</h4>
+    <h4> <u>Item</u> : <b> {{data.20}} <b> </h4>
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</center>
+
+{% endif %}
+
+{% endblock content %}

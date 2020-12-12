@@ -1,0 +1,20 @@
+{% extends "notifications/base.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="container p-5">
+        <div class="container p-5">
+            <div class="container p-5">
+                <div class="container p-5 bg-light shadow-lg">
+                    <h2>{{notification.title}}</h2>
+                <p>{{notification.message}}</p>
+                    <div class="container d-flex justify-content-end">
+                                        <p> By --- {{notification.curr_user}} </p>
+                    </div>
+                <p><a href="/notification/delete/{{notification.id}}/">Mark as read</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

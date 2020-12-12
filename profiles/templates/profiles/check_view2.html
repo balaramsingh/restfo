@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+{% extends 'profiles/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+ /* Should be removed. Only for demonstration */
+}
+
+.left {
+    padding-left: 3%;
+  width: 34%;
+}
+.middle {
+  width : 33%;
+}
+
+ .right {
+  width: 33%;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th , td {
+    width : 125px;
+    text-align: center;
+}
+tr {
+  height: 50px;
+}
+td,th {
+  font-size: 25px;
+}
+.bold1 {
+  font-weight: 600;
+}
+th {
+  background-color :#d24dff;
+}
+</style>
+</head>
+
+<body style="background-color:#99ddff;">
+    <nav class="navbar navbar-expand-lg navbar-light navback shadow-lg p-3 mb-2 fixed-top" style="background-color:#cc6600;">
+        <a class="navbar-brand" href="#"> Check Details </a>
+
+        <button class="navbar-toggler btn-primary ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+    <div class="collapse navbar-collapse pl-5" id="navbarNav">
+        <div class="container">
+            <ul class="navbar-nav ml-auto pl-5">
+            <li class="nav-item px-2">
+                <a class="nav-link text-body"data-toggle="tooltip" data-placement="bottom" href="/profiles/{{username}}">Back</a>
+              </li>
+         </ul>
+
+        </div>
+      </div>
+      </nav>
+<br> <br> <br> <br>
+<div class="row" >
+  <div class="column left" style="background-color:#99ddff;">
+    <h2 style="text-align: center;padding-top: 30px;"> Check Slot Availability</h2>
+    <div class="container p-5">
+      <div class="container p-5">
+          <div class="container bg-light shadow-lg p-5">
+           <div class="row">
+               <div class="col-sm-6">
+                   <form action="" method="post">
+          {% csrf_token %}
+
+          <label for="slot_date">Date: </label><br>
+          <input type="date" name="slot_date"><br><br>
+          
+
+          <label for="table_no">Table Size: </label><br>
+          <input type="integer" name="table_no"><br><br>
+
+               <div class="container p-2">
+                    <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+               </div>
+          </form>
+               </div>
+
+           </div>
+          </div>
+      </div>
+  </div>
+  
+
+
+  </div>
+  <div class="column middle" style="background-color:#99ddff;">
+    <table>
+      <tr>
+        <th>Slot number</th>
+          <th>From</th>
+          <th>To</th>
+          
+          <th>Availability Status</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td class="bold1">09:00am</td>
+          <td class="bold1">09:30am</td>
+          
+          {% if slot_1 == '0' %}
+          <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+          {% else %}
+          <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+          {%endif%}
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="bold1">09:30am</td>
+          <td class="bold1">10:00am</td>
+          
+          {% if slot_2 == '0' %}
+          <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+          {% else %}
+          <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+          {%endif%}
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="bold1">10:00am</td>
+          <td class="bold1">10:40am</td>
+          
+          {% if slot_2 == '0' %}
+          <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+          {% else %}
+          <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+          {%endif%}
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="bold1">10:45am</td>
+          <td class="bold1">11:25am</td>
+          
+          {% if slot_4 == '0' %}
+          <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+          {% else %}
+          <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+          {%endif%}
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="bold1">11:30am</td>
+          <td class="bold1">12:10am</td>
+          
+          {% if slot_5 == '0' %}
+          <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+          {% else %}
+          <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+          {%endif%}
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="bold1">12:15am</td>
+          <td class="bold1">12:55am</td>
+          
+          {% if slot_6 == '0' %}
+          <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+          {% else %}
+          <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+          {%endif%}
+        </tr>
+        <tr>
+          <td>7</td>
+          <td class="bold1">01:00pm</td>
+          <td class="bold1">01:40am</td>
+          
+          {% if slot_7 == '0' %}
+          <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+          {% else %}
+          <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+          {%endif%}
+        </tr>
+        <tr>
+          <td>8</td>
+          <td class="bold1">01:45pm</td>
+          <td class="bold1">02:25pm</td>
+          
+          {% if slot_8 == '0' %}
+          <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+          {% else %}
+          <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+          {%endif%}
+        </tr>
+        <tr>
+          <td>9</td>
+          <td class="bold1">02:30pm</td>
+          <td class="bold1">03:10pm</td>
+          
+          {% if slot_9 == '0' %}
+          <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+          {% else %}
+          <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+          {%endif%}
+        </tr>
+        <tr>
+          <td>10</td>
+          <td class="bold1">03:15pm</td>
+          <td class="bold1">03:50am</td>
+          
+          {% if slot_10 == '0' %}
+          <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+          {% else %}
+          <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+          {%endif%}
+        </tr>
+        
+        
+      </table>
+        <h1 style="text-align: center;padding-top: 40px;font-size: 40px;"><img src = "{% static '/profiles/yes.png' %}"  height="45px"> - Available</h1>
+
+  </div>
+  <div class="column right" style="background-color:#99ddff;">
+    <table>
+      <tr>
+        <th>Slot number</th>
+        <th>From</th>
+        <th>To</th>
+        
+        <th>Availability Status</th>
+        </tr>
+    <tr>
+      <td>11</td>
+      <td class="bold1">04:00pm</td>
+      <td class="bold1">04:40pm</td>
+      
+      {% if slot_11 == '0' %}
+      <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+      {% else %}
+      <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+      {%endif%}
+    </tr>
+    <tr>
+      <td>12</td>
+      <td class="bold1">04:45pm</td>
+      <td class="bold1">05:25pm</td>
+      
+      {% if slot_12 == '0' %}
+      <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+      {% else %}
+      <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+      {%endif%}
+    </tr>
+    <tr>
+      <td>13</td>
+      <td class="bold1">05:30pm</td>
+      <td class="bold1">06:10pm</td>
+      
+      {% if slot_13 == '0' %}
+      <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+      {% else %}
+      <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+      {%endif%}
+    </tr>
+    <tr>
+      <td>14</td>
+      <td class="bold1">06:15pm</td>
+      <td class="bold1">06:55pm</td>
+      
+      {% if slot_14 == '0' %}
+      <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+      {% else %}
+      <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+      {%endif%}
+    </tr>
+    <tr>
+      <td>15</td>
+      <td class="bold1">07:00pm</td>
+      <td class="bold1">07:40pm</td>
+      
+      {% if slot_15 == '0' %}
+      <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+      {% else %}
+      <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+      {%endif%}
+    </tr>
+    <tr>
+      <td>16</td>
+      <td class="bold1">07:45pm</td>
+      <td class="bold1">08:25pm</td>
+      
+      {% if slot_16 == '0' %}
+      <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+      {% else %}
+      <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+      {%endif%}
+    </tr>
+    <tr>
+      <td>17</td>
+      <td class="bold1">08:30pm</td>
+      <td class="bold1">09:10pm</td>
+      
+      {% if slot_17 == '0' %}
+      <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+      {% else %}
+      <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+      {%endif%}
+    </tr>
+    <tr>
+      <td>18</td>
+      <td class="bold1">09:15pm</td>
+      <td class="bold1">09:55pm</td>
+      
+      {% if slot_18 == '0' %}
+      <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+      {% else %}
+      <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+      {%endif%}
+    </tr>
+    <tr>
+      <td>19</td>
+      <td class="bold1">10:00pm</td>
+      <td class="bold1">10:45pm</td>
+      
+      {% if slot_19 == '0' %}
+      <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+      {% else %}
+      <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+      {%endif%}
+    </tr>
+    <tr>
+      <td>20</td>
+      <td class="bold1">10:45pm</td>
+      <td class="bold1">11:30pm</td>
+      
+      {% if slot_20 == '0' %}
+      <td><img src = "{% static '/profiles/no.png' %}"  height="35px"></td>
+      {% else %}
+      <td><img src = "{% static '/profiles/yes.png' %}"  height="35px"></td>
+      {%endif%}
+    </tr>
+  </table>
+  <h1 style="text-align: center;padding-top: 40px;font-size: 40px;"><img src = "{% static '/profiles/no.png' %}"  height="45px"> - Not Available</h1>
+
+  </div>
+
+  
+
+
+</div>
+
+
+
+</body>
+</html>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="/profiles/{{username}}">Back</a>
